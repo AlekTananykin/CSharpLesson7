@@ -39,11 +39,12 @@
             this.lblCommandsCountText = new System.Windows.Forms.Label();
             this.lblTargetNumber = new System.Windows.Forms.Label();
             this.btnUndo = new System.Windows.Forms.Button();
+            this.btnGameCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnIncreament
             // 
-            this.btnIncreament.Location = new System.Drawing.Point(16, 12);
+            this.btnIncreament.Location = new System.Drawing.Point(396, 85);
             this.btnIncreament.Name = "btnIncreament";
             this.btnIncreament.Size = new System.Drawing.Size(130, 50);
             this.btnIncreament.TabIndex = 0;
@@ -53,7 +54,7 @@
             // 
             // btnMultiply
             // 
-            this.btnMultiply.Location = new System.Drawing.Point(152, 12);
+            this.btnMultiply.Location = new System.Drawing.Point(396, 144);
             this.btnMultiply.Name = "btnMultiply";
             this.btnMultiply.Size = new System.Drawing.Size(130, 50);
             this.btnMultiply.TabIndex = 1;
@@ -63,7 +64,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(288, 12);
+            this.btnReset.Location = new System.Drawing.Point(396, 256);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(130, 50);
             this.btnReset.TabIndex = 2;
@@ -109,7 +110,7 @@
             // 
             // btnPlayGame
             // 
-            this.btnPlayGame.Location = new System.Drawing.Point(424, 12);
+            this.btnPlayGame.Location = new System.Drawing.Point(16, 12);
             this.btnPlayGame.Name = "btnPlayGame";
             this.btnPlayGame.Size = new System.Drawing.Size(130, 50);
             this.btnPlayGame.TabIndex = 7;
@@ -139,7 +140,7 @@
             // 
             // btnUndo
             // 
-            this.btnUndo.Location = new System.Drawing.Point(560, 12);
+            this.btnUndo.Location = new System.Drawing.Point(396, 200);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(130, 50);
             this.btnUndo.TabIndex = 10;
@@ -147,11 +148,23 @@
             this.btnUndo.UseVisualStyleBackColor = true;
             this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
+            // btnGameCancel
+            // 
+            this.btnGameCancel.Enabled = false;
+            this.btnGameCancel.Location = new System.Drawing.Point(152, 12);
+            this.btnGameCancel.Name = "btnGameCancel";
+            this.btnGameCancel.Size = new System.Drawing.Size(250, 50);
+            this.btnGameCancel.TabIndex = 11;
+            this.btnGameCancel.Text = "Отменить игру";
+            this.btnGameCancel.UseVisualStyleBackColor = true;
+            this.btnGameCancel.Click += new System.EventHandler(this.btnGameCancel_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 464);
+            this.Controls.Add(this.btnGameCancel);
             this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.lblTargetNumber);
             this.Controls.Add(this.lblCommandsCountText);
@@ -183,6 +196,7 @@
         private System.Windows.Forms.Label lblCommandsCountText;
         private System.Windows.Forms.Label lblTargetNumber;
         private System.Windows.Forms.Button btnUndo;
+        private System.Windows.Forms.Button btnGameCancel;
     }
 }
 

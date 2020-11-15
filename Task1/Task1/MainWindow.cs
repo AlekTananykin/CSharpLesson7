@@ -34,6 +34,8 @@ namespace Task1
             lblNumbers.Text = (long.Parse(lblNumbers.Text) + 1).ToString();
             IncrementCommandsCount();
             PushState();
+
+            CheckVictory();
         }
 
         private void btnMultiply_Click(object sender, EventArgs e)
@@ -42,6 +44,8 @@ namespace Task1
             lblNumbers.Text = (long.Parse(lblNumbers.Text) * 2).ToString();
             IncrementCommandsCount();
             PushState();
+
+            CheckVictory();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -59,33 +63,45 @@ namespace Task1
 
         private void btnPlayGame_Click(object sender, EventArgs e)
         {
-            lblNumbers.Text = "0";
-            lblCommandsCount.Text = "0";
-            Random rnd = new Random();
-            lblTargetNumber.Text = Math.Abs(rnd.Next()).ToString();
+            PrepareGame();
 
             lblTargetNumber.Visible = true;
             lblCommandsCountText.Visible = true;
         }
 
-        private struct GameState
+        private void PrepareGame()
         {
-            public string Number { get; set; }
-            public string TargetNumber { get; set; }
-            public string CommandsCount { get; set; }
+            lblNumbers.Text = "0";
+            lblCommandsCount.Text = "0";
+            Random rnd = new Random();
+            lblTargetNumber.Text = Math.Abs(rnd.Next(10, 100)).ToString();
+            _statesStack.Clear();
+            btnGameCancel.Enabled = true;
+            btnPlayGame.Enabled = false;
         }
 
-        Stack<GameState> _statesStack = new Stack<GameState>();
+        private void ResetGame()
+        {
+            lblTargetNumber.Visible = false;
+            lblCommandsCountText.Visible = false;
+            lblNumbers.Text = "0";
+            lblCommandsCount.Text = "0";
+            _statesStack.Clear();
+
+            btnGameCancel.Enabled = false;
+            btnPlayGame.Enabled= true;
+        }
+
+        private void btnUndo_Click(object sender, EventArgs e)
+        {
+            PopState();
+        }
+
+        Stack<string> _statesStack = new Stack<string>();
 
         private void PushState()
         {
-            _statesStack.Push(new GameState()
-            {
-                Number = lblNumbers.Text,
-                TargetNumber = (lblTargetNumber.Visible)? 
-                    lblTargetNumber.Text: String.Empty,
-                CommandsCount = lblCommandsCount.Text
-            });
+            _statesStack.Push(lblNumbers.Text);
         }
 
         private void PopState()
@@ -94,26 +110,29 @@ namespace Task1
                 return;
 
             _statesStack.Pop();
-            GameState state = _statesStack.Peek();
-
-            if (0 == state.TargetNumber.Length)
-            {
-                lblTargetNumber.Visible = false;
-                lblCommandsCountText.Visible = false;
-            }
-            else
-            {
-                lblTargetNumber.Visible = true;
-                lblCommandsCountText.Visible = true;
-                lblCommandsCountText.Text = state.TargetNumber;
-            }
-            lblNumbers.Text = state.Number;
-            lblCommandsCount.Text = state.CommandsCount;
+            lblNumbers.Text = _statesStack.Peek();
         }
 
-        private void btnUndo_Click(object sender, EventArgs e)
+        private void CheckVictory()
         {
-            PopState();
+            if (!lblTargetNumber.Visible ||
+                lblTargetNumber.Text != lblNumbers.Text)
+                return;
+
+            string messageString = string.Format(
+                "Победа за {0} ходов! Начать новую игру?", lblCommandsCount.Text);
+
+            if (MessageBox.Show(messageString, "Победа!",
+                MessageBoxButtons.OKCancel) == DialogResult.OK)
+                PrepareGame();
+            else
+                ResetGame();
+            
+        }
+
+        private void btnGameCancel_Click(object sender, EventArgs e)
+        {
+            ResetGame();
         }
     }
 }
