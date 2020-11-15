@@ -16,5 +16,20 @@ namespace Task1
         {
             InitializeComponent();
         }
+
+        private void btnIncreament_Click(object sender, EventArgs e)
+        {
+            lblNumbers.Text = (int.Parse(lblNumbers.Text) + 1).ToString();
+        }
+
+        private void btnMultiply_Click(object sender, EventArgs e)
+        {
+            lblNumbers.Text = (int.Parse(lblNumbers.Text) * 2).ToString();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            lblNumbers.Text = "0";
+        }
     }
 }
