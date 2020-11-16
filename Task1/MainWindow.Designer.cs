@@ -35,11 +35,13 @@
             this.lblCommandsCount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnPlayGame = new System.Windows.Forms.Button();
             this.lblCommandsCountText = new System.Windows.Forms.Label();
             this.lblTargetNumber = new System.Windows.Forms.Label();
             this.btnUndo = new System.Windows.Forms.Button();
-            this.btnGameCancel = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuGamePlay = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuGameCancel = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnIncreament
@@ -108,16 +110,6 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Число";
             // 
-            // btnPlayGame
-            // 
-            this.btnPlayGame.Location = new System.Drawing.Point(16, 12);
-            this.btnPlayGame.Name = "btnPlayGame";
-            this.btnPlayGame.Size = new System.Drawing.Size(130, 50);
-            this.btnPlayGame.TabIndex = 7;
-            this.btnPlayGame.Text = "Играть";
-            this.btnPlayGame.UseVisualStyleBackColor = true;
-            this.btnPlayGame.Click += new System.EventHandler(this.btnPlayGame_Click);
-            // 
             // lblCommandsCountText
             // 
             this.lblCommandsCountText.AutoSize = true;
@@ -148,27 +140,41 @@
             this.btnUndo.UseVisualStyleBackColor = true;
             this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
-            // btnGameCancel
+            // menuStrip1
             // 
-            this.btnGameCancel.Enabled = false;
-            this.btnGameCancel.Location = new System.Drawing.Point(152, 12);
-            this.btnGameCancel.Name = "btnGameCancel";
-            this.btnGameCancel.Size = new System.Drawing.Size(250, 50);
-            this.btnGameCancel.TabIndex = 11;
-            this.btnGameCancel.Text = "Отменить игру";
-            this.btnGameCancel.UseVisualStyleBackColor = true;
-            this.btnGameCancel.Click += new System.EventHandler(this.btnGameCancel_Click);
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuGamePlay,
+            this.menuGameCancel});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(776, 33);
+            this.menuStrip1.TabIndex = 12;
+            // 
+            // menuGamePlay
+            // 
+            this.menuGamePlay.Name = "menuGamePlay";
+            this.menuGamePlay.Size = new System.Drawing.Size(84, 29);
+            this.menuGamePlay.Text = "Играть";
+            this.menuGamePlay.Click += new System.EventHandler(this.menuGamePlay_Click);
+            // 
+            // menuGameCancel
+            // 
+            this.menuGameCancel.Enabled = false;
+            this.menuGameCancel.Name = "menuGameCancel";
+            this.menuGameCancel.Size = new System.Drawing.Size(149, 29);
+            this.menuGameCancel.Text = "Отменить игру";
+            this.menuGameCancel.Click += new System.EventHandler(this.menuGameCancel_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 464);
-            this.Controls.Add(this.btnGameCancel);
             this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.lblTargetNumber);
             this.Controls.Add(this.lblCommandsCountText);
-            this.Controls.Add(this.btnPlayGame);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblCommandsCount);
@@ -176,8 +182,11 @@
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnMultiply);
             this.Controls.Add(this.btnIncreament);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "MainWindow";
             this.Text = "MainWindow";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,11 +201,12 @@
         private System.Windows.Forms.Label lblCommandsCount;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnPlayGame;
         private System.Windows.Forms.Label lblCommandsCountText;
         private System.Windows.Forms.Label lblTargetNumber;
         private System.Windows.Forms.Button btnUndo;
-        private System.Windows.Forms.Button btnGameCancel;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem menuGamePlay;
+        private System.Windows.Forms.ToolStripMenuItem menuGameCancel;
     }
 }
 

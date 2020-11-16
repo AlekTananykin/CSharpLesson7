@@ -27,6 +27,7 @@ namespace Task1
         public MainWindow()
         {
             InitializeComponent();
+            _statesStack.Push("0");
         }
 
         private void btnIncreament_Click(object sender, EventArgs e)
@@ -76,9 +77,10 @@ namespace Task1
             lblCommandsCountText.Visible = true;
 
             _statesStack.Clear();
+            _statesStack.Push("0");
 
-            btnGameCancel.Enabled = true;
-            btnPlayGame.Enabled = false;
+            menuGameCancel.Enabled = true;
+            menuGamePlay.Enabled = false;
         }
 
         private void ResetGame()
@@ -89,9 +91,10 @@ namespace Task1
             lblCommandsCountText.Visible = false;
             
             _statesStack.Clear();
+            _statesStack.Push("0");
 
-            btnGameCancel.Enabled = false;
-            btnPlayGame.Enabled= true;
+            menuGameCancel.Enabled = false;
+            menuGamePlay.Enabled = true;
         }
 
         private void btnUndo_Click(object sender, EventArgs e)
@@ -132,7 +135,12 @@ namespace Task1
             
         }
 
-        private void btnGameCancel_Click(object sender, EventArgs e)
+        private void menuGamePlay_Click(object sender, EventArgs e)
+        {
+            PrepareGame();
+        }
+
+        private void menuGameCancel_Click(object sender, EventArgs e)
         {
             ResetGame();
         }
