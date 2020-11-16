@@ -27,33 +27,31 @@ namespace Task1
         public MainWindow()
         {
             InitializeComponent();
-            _statesStack.Push("0");
         }
 
         private void btnIncreament_Click(object sender, EventArgs e)
         {
+            PushState();
             lblNumbers.Text = (long.Parse(lblNumbers.Text) + 1).ToString();
             IncrementCommandsCount();
-            PushState();
-
+            
             CheckVictory();
         }
 
         private void btnMultiply_Click(object sender, EventArgs e)
         {
-            
+            PushState();
             lblNumbers.Text = (long.Parse(lblNumbers.Text) * 2).ToString();
             IncrementCommandsCount();
-            PushState();
-
+            
             CheckVictory();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            PushState();
             lblNumbers.Text = "0";
             IncrementCommandsCount();
-            PushState();
         }
 
         private void IncrementCommandsCount()
@@ -77,7 +75,6 @@ namespace Task1
             lblCommandsCountText.Visible = true;
 
             _statesStack.Clear();
-            _statesStack.Push("0");
 
             menuGameCancel.Enabled = true;
             menuGamePlay.Enabled = false;
@@ -91,7 +88,6 @@ namespace Task1
             lblCommandsCountText.Visible = false;
             
             _statesStack.Clear();
-            _statesStack.Push("0");
 
             menuGameCancel.Enabled = false;
             menuGamePlay.Enabled = true;
@@ -100,6 +96,7 @@ namespace Task1
         private void btnUndo_Click(object sender, EventArgs e)
         {
             PopState();
+            IncrementCommandsCount();
         }
 
         Stack<string> _statesStack = new Stack<string>();
@@ -111,11 +108,10 @@ namespace Task1
 
         private void PopState()
         {
-            if (2 > _statesStack.Count)
+            if (0 == _statesStack.Count)
                 return;
 
-            _statesStack.Pop();
-            lblNumbers.Text = _statesStack.Peek();
+            lblNumbers.Text = _statesStack.Pop();
         }
 
         private void CheckVictory()
