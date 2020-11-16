@@ -64,9 +64,6 @@ namespace Task1
         private void btnPlayGame_Click(object sender, EventArgs e)
         {
             PrepareGame();
-
-            lblTargetNumber.Visible = true;
-            lblCommandsCountText.Visible = true;
         }
 
         private void PrepareGame()
@@ -75,17 +72,22 @@ namespace Task1
             lblCommandsCount.Text = "0";
             Random rnd = new Random();
             lblTargetNumber.Text = Math.Abs(rnd.Next(10, 100)).ToString();
+            lblTargetNumber.Visible = true;
+            lblCommandsCountText.Visible = true;
+
             _statesStack.Clear();
+
             btnGameCancel.Enabled = true;
             btnPlayGame.Enabled = false;
         }
 
         private void ResetGame()
         {
-            lblTargetNumber.Visible = false;
-            lblCommandsCountText.Visible = false;
             lblNumbers.Text = "0";
             lblCommandsCount.Text = "0";
+            lblTargetNumber.Visible = false;
+            lblCommandsCountText.Visible = false;
+            
             _statesStack.Clear();
 
             btnGameCancel.Enabled = false;
