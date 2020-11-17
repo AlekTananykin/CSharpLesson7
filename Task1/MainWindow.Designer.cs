@@ -40,7 +40,6 @@
             this.btnUndo = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuGamePlay = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuGameCancel = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,8 +144,7 @@
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuGamePlay,
-            this.menuGameCancel});
+            this.menuGamePlay });
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(776, 33);
@@ -158,14 +156,6 @@
             this.menuGamePlay.Size = new System.Drawing.Size(84, 29);
             this.menuGamePlay.Text = "Играть";
             this.menuGamePlay.Click += new System.EventHandler(this.menuGamePlay_Click);
-            // 
-            // menuGameCancel
-            // 
-            this.menuGameCancel.Enabled = false;
-            this.menuGameCancel.Name = "menuGameCancel";
-            this.menuGameCancel.Size = new System.Drawing.Size(149, 29);
-            this.menuGameCancel.Text = "Отменить игру";
-            this.menuGameCancel.Click += new System.EventHandler(this.menuGameCancel_Click);
             // 
             // MainWindow
             // 
@@ -206,7 +196,6 @@
         private System.Windows.Forms.Button btnUndo;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuGamePlay;
-        private System.Windows.Forms.ToolStripMenuItem menuGameCancel;
     }
 }
 

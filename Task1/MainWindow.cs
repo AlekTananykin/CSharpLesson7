@@ -27,6 +27,7 @@ namespace Task1
         public MainWindow()
         {
             InitializeComponent();
+            PrepareGame();
         }
 
         private void btnIncreament_Click(object sender, EventArgs e)
@@ -75,22 +76,6 @@ namespace Task1
             lblCommandsCountText.Visible = true;
 
             _statesStack.Clear();
-
-            menuGameCancel.Enabled = true;
-            menuGamePlay.Enabled = false;
-        }
-
-        private void ResetGame()
-        {
-            lblNumbers.Text = "0";
-            lblCommandsCount.Text = "0";
-            lblTargetNumber.Visible = false;
-            lblCommandsCountText.Visible = false;
-            
-            _statesStack.Clear();
-
-            menuGameCancel.Enabled = false;
-            menuGamePlay.Enabled = true;
         }
 
         private void btnUndo_Click(object sender, EventArgs e)
@@ -121,24 +106,16 @@ namespace Task1
                 return;
 
             string messageString = string.Format(
-                "Победа за {0} ходов! Начать новую игру?", lblCommandsCount.Text);
+                "Победа за {0} ходов! Начинаем новую игру.", lblCommandsCount.Text);
 
-            if (MessageBox.Show(messageString, "Победа!",
-                MessageBoxButtons.OKCancel) == DialogResult.OK)
-                PrepareGame();
-            else
-                ResetGame();
-            
+            MessageBox.Show(messageString, "Победа!", MessageBoxButtons.OK);
+
+            PrepareGame();
         }
 
         private void menuGamePlay_Click(object sender, EventArgs e)
         {
             PrepareGame();
-        }
-
-        private void menuGameCancel_Click(object sender, EventArgs e)
-        {
-            ResetGame();
         }
     }
 }
