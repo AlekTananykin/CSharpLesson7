@@ -24,10 +24,14 @@ namespace Task1
 {
     public partial class MainWindow : Form
     {
+        private int _targetNumber = 0;
         public MainWindow()
         {
             InitializeComponent();
-            PrepareGame();
+            this.btnIncreament.Enabled = false;
+            this.btnMultiply.Enabled = false;
+            this.btnReset.Enabled = false;
+            this.btnUndo.Enabled = false;
         }
 
         private void btnIncreament_Click(object sender, EventArgs e)
@@ -71,11 +75,12 @@ namespace Task1
             lblNumbers.Text = "0";
             lblCommandsCount.Text = "0";
             Random rnd = new Random();
-            lblTargetNumber.Text = Math.Abs(rnd.Next(10, 100)).ToString();
-            lblTargetNumber.Visible = true;
-            lblCommandsCountText.Visible = true;
+            _targetNumber = Math.Abs(rnd.Next(10, 100));
 
             _statesStack.Clear();
+            string messageString = String.Format(
+                "Вам нужно получить число {0}", _targetNumber);
+            MessageBox.Show(messageString, "Начинаем!", MessageBoxButtons.OK);
         }
 
         private void btnUndo_Click(object sender, EventArgs e)
@@ -101,12 +106,12 @@ namespace Task1
 
         private void CheckVictory()
         {
-            if (!lblTargetNumber.Visible ||
-                lblTargetNumber.Text != lblNumbers.Text)
+            if (_targetNumber != int.Parse(lblNumbers.Text))
                 return;
 
             string messageString = string.Format(
-                "Победа за {0} ходов! Начинаем новую игру.", lblCommandsCount.Text);
+                "Победа за {0} ходов! Начинаем новую игру.", 
+                lblCommandsCount.Text);
 
             MessageBox.Show(messageString, "Победа!", MessageBoxButtons.OK);
 
@@ -116,6 +121,11 @@ namespace Task1
         private void menuGamePlay_Click(object sender, EventArgs e)
         {
             PrepareGame();
+
+            this.btnIncreament.Enabled = true;
+            this.btnMultiply.Enabled = true;
+            this.btnReset.Enabled = true;
+            this.btnUndo.Enabled = true;
         }
     }
 }

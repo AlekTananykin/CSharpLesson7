@@ -36,7 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblCommandsCountText = new System.Windows.Forms.Label();
-            this.lblTargetNumber = new System.Windows.Forms.Label();
             this.btnUndo = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuGamePlay = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,16 +118,6 @@
             this.lblCommandsCountText.Text = "Число, которое надо получить";
             this.lblCommandsCountText.Visible = false;
             // 
-            // lblTargetNumber
-            // 
-            this.lblTargetNumber.AutoSize = true;
-            this.lblTargetNumber.Location = new System.Drawing.Point(284, 133);
-            this.lblTargetNumber.Name = "lblTargetNumber";
-            this.lblTargetNumber.Size = new System.Drawing.Size(18, 20);
-            this.lblTargetNumber.TabIndex = 9;
-            this.lblTargetNumber.Text = "0";
-            this.lblTargetNumber.Visible = false;
-            // 
             // btnUndo
             // 
             this.btnUndo.Location = new System.Drawing.Point(396, 200);
@@ -149,6 +138,9 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(776, 33);
             this.menuStrip1.TabIndex = 12;
+            
+            //
+
             // 
             // menuGamePlay
             // 
@@ -163,7 +155,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 464);
             this.Controls.Add(this.btnUndo);
-            this.Controls.Add(this.lblTargetNumber);
             this.Controls.Add(this.lblCommandsCountText);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -180,6 +171,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+
+
         }
 
         #endregion
@@ -192,7 +185,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblCommandsCountText;
-        private System.Windows.Forms.Label lblTargetNumber;
         private System.Windows.Forms.Button btnUndo;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuGamePlay;
