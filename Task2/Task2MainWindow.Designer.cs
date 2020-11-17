@@ -54,10 +54,11 @@
             // 
             // lblResultMessage
             // 
-            this.lblResultMessage.Location = new System.Drawing.Point(0, 0);
+            this.lblResultMessage.Location = new System.Drawing.Point(42, 260);
             this.lblResultMessage.Name = "lblResultMessage";
-            this.lblResultMessage.Size = new System.Drawing.Size(100, 23);
+            this.lblResultMessage.Size = new System.Drawing.Size(211, 79);
             this.lblResultMessage.TabIndex = 5;
+            this.lblResultMessage.Text = "lblResultMessage";
             // 
             // label2
             // 
@@ -80,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 404);
+            this.ClientSize = new System.Drawing.Size(360, 404);
             this.Controls.Add(this.answer);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblResultMessage);
