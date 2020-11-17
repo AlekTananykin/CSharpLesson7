@@ -32,26 +32,21 @@ namespace Task2
 
             lblResultMessage.Text =
                 string.Format("У вас {0} попыток. ", _tryCount);
-
-            //textInput.Text = _number.ToString();
         }
 
         private void btnCheckNumber_Click(object sender, EventArgs e)
         {
-            int actualNumber;
-            if (!int.TryParse(textInput.Text, out actualNumber))
-            {
-                MessageBox.Show("По условиям игры требуется ввести " +
-                    "число от 1 до 100.",
-                   "Внимание!", MessageBoxButtons.OK);
+            _inputForm.ShowDialog();
+        }
 
-                return;
-            }
+        void ReadInt(int inputValue)
+        {
+            _inputForm.Hide();
 
             string tryCountString =
                 string.Format("Осталось {0} попыток. ", --_tryCount);
 
-            if (actualNumber == _number)
+            if (inputValue == _number)
             {
                 MessageBox.Show("Вы угадали! Начинаем новое число! ", "Победа!",
                         MessageBoxButtons.OK);
@@ -71,13 +66,12 @@ namespace Task2
                 return;
             }
 
-            if (actualNumber < _number)
-                lblResultMessage.Text = "Ваше число меньше загаданного." + 
+            if (inputValue < _number)
+                lblResultMessage.Text = "Ваше число меньше загаданного." +
                     tryCountString;
-            else if (actualNumber > _number)
-                lblResultMessage.Text = "Ваше число больше загаданного." + 
+            else if (inputValue > _number)
+                lblResultMessage.Text = "Ваше число больше загаданного." +
                     tryCountString;
         }
-
     }
 }

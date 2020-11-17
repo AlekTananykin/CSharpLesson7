@@ -28,19 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textInput = new System.Windows.Forms.TextBox();
             this.btnCheckNumber = new System.Windows.Forms.Button();
             this.lblResultMessage = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.answer = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // textInput
-            // 
-            this.textInput.Location = new System.Drawing.Point(42, 107);
-            this.textInput.Name = "textInput";
-            this.textInput.Size = new System.Drawing.Size(211, 26);
-            this.textInput.TabIndex = 0;
             // 
             // btnCheckNumber
             // 
@@ -48,7 +40,7 @@
             this.btnCheckNumber.Name = "btnCheckNumber";
             this.btnCheckNumber.Size = new System.Drawing.Size(211, 50);
             this.btnCheckNumber.TabIndex = 1;
-            this.btnCheckNumber.Text = "Проверить число";
+            this.btnCheckNumber.Text = "Введите число";
             this.btnCheckNumber.UseVisualStyleBackColor = true;
             this.btnCheckNumber.Click += new System.EventHandler(this.btnCheckNumber_Click);
             // 
@@ -76,6 +68,8 @@
             this.answer.Name = "answer";
             this.answer.Size = new System.Drawing.Size(0, 20);
             this.answer.TabIndex = 4;
+            //
+            _inputForm = new NumberInput();
             // 
             // Task2MainWindow
             // 
@@ -86,21 +80,23 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblResultMessage);
             this.Controls.Add(this.btnCheckNumber);
-            this.Controls.Add(this.textInput);
+            
             this.Name = "Task2MainWindow";
             this.Text = "Угадай число";
             this.ResumeLayout(false);
             this.PerformLayout();
 
+            _inputForm.InputNumberEvent += 
+                new NumberInput.InputNumberHandler(ReadInt);
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox textInput;
         private System.Windows.Forms.Button btnCheckNumber;
         private System.Windows.Forms.Label lblResultMessage;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label answer;
+        private NumberInput _inputForm;
     }
 }
 
