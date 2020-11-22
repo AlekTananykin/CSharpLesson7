@@ -48,7 +48,7 @@ namespace Task2
 
             if (inputValue == _number)
             {
-                MessageBox.Show("Вы угадали! Начинаем новое число! ", "Победа!",
+                MessageBox.Show("Вы угадали! Начинаем новую игру! ", "Победа!",
                         MessageBoxButtons.OK);
 
                 PreapreGame();
@@ -58,7 +58,10 @@ namespace Task2
             if (0 == _tryCount)
             {
                 lblResultMessage.Text = tryCountString;
-                MessageBox.Show("Вы проиграли. Начинаем новую игру.",
+                string message = string.Format(
+                    "Вы проиграли. Было загадано число {0}. " +
+                    "Начинаем новую игру.", _number);
+                MessageBox.Show(message,
                     "Проигрыш!",
                     MessageBoxButtons.OK);
 
